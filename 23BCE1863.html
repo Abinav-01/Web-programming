@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>PAT-1</title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                flex-wrap: wrap;
+                background-color: antiquewhite;
+                align-content: center;
+                height: 50%;
+            }
+            .heading{
+                padding:20px;
+                border-left: 200px;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .drop-down{
+                padding: 10px;
+                width: 100px;
+            }
+            .search-box{
+                padding: 10px;
+            }
+            input{
+                width: 50%;
+                height: 25px;
+            }
+            select{
+                width:900px;
+                height:25px;
+            }
+            table{
+                border: 1px solid gray;
+                width: 100%;
+                height:auto;
+            }
+            .item-head{
+                background-color: royalblue;
+                border: 1px solid black;
+                color:white;
+            }
+            .items{
+                text-align: center;
+            }
+            .des1{
+                color:red;
+            }
+            .des2{
+                color:green;
+            }
+            tr{
+                border: 1px solid black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1 class="heading">Product Comparison</h1>
+        <div class="drop-down">
+            <select name="Category">
+                <option>All categories</option>
+            </select>
+        </div>
+
+        <label class="search-box"><input type="search" placeholder="Search by Product Name"></label>
+        <table>
+            <tr class="item-head">
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Availability</th>
+            </tr>
+            <tr class="items">
+                <td>SmartPhone A</td>
+                <td>Electronics</td>
+                <td class="des1">200</td>
+                <td>In stock</td>
+            </tr>
+            <tr class="items">
+                <td>SmartPhone B</td>
+                <td>Electronics</td>
+                <td>250</td>
+                <td>Out of stock</td>
+            </tr>
+            <tr class="items">
+                <td>TV</td>
+                <td>Home Appliances</td>
+                <td class="des2">400</td>
+                <td>In stock</td>
+            </tr>
+            <tr class="items">
+                <td>Jeans</td>
+                <td>Fashion</td>
+                <td>100</td>
+                <td>In stock</td>
+            </tr>
+        </table>
+    </body>
+</html>
