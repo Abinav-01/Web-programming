@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1884</title>
+    
+    <link rel="stylesheet" type="text/css" href="nav.css">
+    <link rel = "stylesheet" type = "text/css" href = "1884.css">
+
+    <script src="https://kit.fontawesome.com/cccfcee2f0.js" crossorigin="anonymous"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let timelineItems = document.querySelectorAll(".timeline-item");
+            let movingCircle = document.querySelector(".timeline-circle"); // The SVG element
+
+            timelineItems.forEach((item) => {
+                item.addEventListener("click", function () {
+                    let year = this.querySelector("h3").innerText; // Extract year from the clicked timeline item
+                    let targetPosition = this.getBoundingClientRect();
+                    let containerPosition = document.querySelector('.timeline-svg').getBoundingClientRect();
+
+                    movingCircle.style.transition = "transform 1.5s ease-in-out";
+                    movingCircle.style.transform = `translateX(${targetPosition.x - containerPosition.x + 64.5}px)`;
+
+                    setTimeout(() => {
+                        window.location.href = year + '.html'; // Redirect to the respective page
+                    }, 2000); // Slightly longer than animation time
+                });
+            });
+        });
+
+        function animateAndRedirectHome() {
+            let content = document.querySelector('.content-container');
+            content.classList.remove('active');
+            void content.offsetWidth;
+            content.classList.add('slide-down');
+            setTimeout(() => {
+                location.href = 'start.html';
+            }, 1000);
+        }
+        
+        // Add new hover functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const contentBox = document.getElementById('content-box');
+            const contentText = document.getElementById('content-text');
+            const timelineItems = document.querySelectorAll('.timeline-item.s');
+
+            const content = {
+                '1885': {
+                    heading: 'Formation of Indian National Congress',
+                    text: 'The Indian National Congress (INC) was formed on December 28, 1885, in Bombay (now Mumbai) with the initiative of Allan Octavian Hume (A.O. Hume), a retired British civil servant, along with prominent Indian leaders. The first session, held at Gokuldas Tejpal Sanskrit College, was presided over by W.C. Bonnerjee and attended by 72 delegates from different parts of India. The INC was established as a national platform to bring together educated Indians to discuss political and social reforms, promote unity and nationalism, and make people aware of their rights under British rule. The early leaders, known as Moderates, aimed for gradual reforms rather than immediate independence. They demanded greater Indian representation in government, civil rights, economic development, and reduction of taxes. The formation of INC was a significant milestone as it united Indians from diverse regions and backgrounds, laying the foundation for future nationalist movements. Over time, its demands evolved, ultimately leading to the struggle for complete independence from British rule.he Indian National Congress (INC) was formed...',
+                    image: '1885.png',
+                    boxId: 'content-box-1885'
+                },
+                '1905': {
+                    heading: 'Partition of Bengal & Swadeshi Movement',
+                    text: "The year The year 1905 was a landmark in India's freedom struggle due to the Partition of Bengal, which sparked widespread protests and the rise of the Swadeshi Movement.  On July 20, 1905, the British government, under Lord Curzon, announced the partition of Bengal, which was implemented on October 16, 1905. The official reason given was administrative efficiency, as Bengal was a large province. However, the real motive was to weaken Indian nationalism by dividing Hindus and Muslims, as Bengal was the center of political activities against British rule. The partition split Bengal into Eastern Bengal and Assam (Muslim-majority) and Western Bengal (Hindu-majority).  The move was met with intense resistance. Nationalists saw it as a divide and rule policy to weaken the growing unity among Indians. The Swadeshi Movement was launched in response, urging Indians to boycott British goods and promote Indian-made products. The movement also encouraged self-reliance, the revival of Indian industries, and national education. Leaders like Bal Gangadhar Tilak, Bipin Chandra Pal, Lala Lajpat Rai, and Aurobindo Ghosh1905 was a landmark in India's freedom struggle",
+                    image: '1905.jpg',
+                    boxId: 'content-box-1905'
+                },
+                '1906': {
+                    heading: 'Extremist Nationalism & Muslim League Formation',
+                    text: "The year 1906 was a significant turning point in India's freedom struggle, marked by the emergence of extremist nationalism and the formation of the Muslim League.One of the key events was the Calcutta Session of the Indian National Congress (INC), where the demand for Swaraj (self-rule) was first officially made. Under the leadership of Dadabhai Naoroji, the session declared that Indians should have the same rights as British citizens. The division between the Moderates (who believed in gradual reforms) and Extremists (who demanded direct action) became more pronounced, with leaders like Bal Gangadhar Tilak, Lala Lajpat Rai, and Bipin Chandra Pal pushing for a more assertive approach against British rule.Another major event was the formation of the All India Muslim League on December 30, 1906, in Dacca (now Dhaka, Bangladesh). The League, founded by Nawab Salimullah, Aga Khan, and other prominent Muslim leaders, was created to safeguard Muslim interests and to maintain loyalty to the British government. It later played a crucial role in the demand for a separate Muslim nation (Pakistan) in 1947. These developments in 1906 strengthened nationalist sentiments in India, intensifying the struggle for independence in the coming years.",
+                    image: '1906.jpg',
+                    boxId: 'content-box-1906'
+                },
+                '1917': {
+                    heading: 'Champaran Satyagraha',
+                    text: "The year 1917 was significant in India's freedom struggle due to the Champaran Satyagraha, which marked Mahatma Gandhi’s first major political movement in India.The Champaran Movement took place in Bihar, where indigo farmers were suffering under the oppressive Tinkathia system imposed by British planters. Under this system, farmers were forced to cultivate indigo on 3/20th of their land, leaving them with little space for food crops. Moreover, they were paid extremely low prices and faced severe exploitation.Encouraged by local leaders like Raj Kumar Shukla, Gandhi arrived in Champaran in April 1917. He conducted extensive surveys, met with farmers, and documented their grievances. When the British ordered him to leave, he refused, stating his moral duty to help the oppressed. This was Gandhi’s first use of Satyagraha (nonviolent resistance) in India, gaining massive support from the people. As a result of Gandhi’s peaceful protests and negotiations, the British were forced to abolish the Tinkathia system, providing relief to the farmers. The success of Champaran Satyagraha established Gandhi as a national leader and popularized nonviolent resistance as a powerful tool against colonial rule.",
+                    image: '1917.jpeg',
+                    boxId: 'content-box-1917'
+                },
+                '1919': {
+                    heading: 'Jallianwala Bagh Massacre',
+                    text: "The year 1919 marked one of the most significant events in India’s struggle for independence – the Jallianwala Bagh Massacre. On April 13, 1919, thousands of Indians had gathered at Jallianwala Bagh in Amritsar, Punjab, to protest against the repressive Rowlatt Act. This Act allowed the British to arrest and detain Indians without trial, leading to widespread anger and resentment. The crowd at the park, consisting of men, women, and children, was unarmed and peaceful. On that day, General Dyer, the British officer in charge, ordered his troops to open fire on the unarmed crowd without any warning. The massacre lasted for about 10 minutes, during which 379 people were killed, though other estimates suggest a higher number. Over a thousand people were injured, some of them critically. The horrific incident shocked the entire nation and stirred a wave of anger and protest against British rule. The Jallianwala Bagh massacre became a turning point in the Indian independence movement. It led to widespread unrest across India and was one of the catalysts for the non-cooperation movement led by Mahatma Gandhi. The brutality of the British army underlined the oppressive nature of colonial rule, galvanizing more Indians to join the fight for freedom.",
+                    image: '1919.jpg',
+                    boxId: 'content-box-1919'
+                }
+            };
+
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseover', () => {
+                    const year = item.querySelector('h5').innerText;
+                    if (content[year]) {
+                        const contentData = content[year];
+                        contentBox.innerHTML = `<h3>${contentData.heading}</h3><p id="content-text">${contentData.text.replace(/\n/g, '<br>').replace(/•/g, '→')}</p>`;
+                        contentBox.style.backgroundImage = `url('${contentData.image}')`;
+                        contentBox.id = contentData.boxId;
+                        contentBox.style.display = 'block';
+                    }
+                });
+
+                item.addEventListener('mouseout', () => {
+                    contentBox.style.display = 'none';
+                    contentBox.id = 'content-box'; // Reset the ID
+                });
+            });
+        });
+        
+    </script>
+    </head>
+<body class="background-container">
+    <h1>Rise of Nationalism (1885-1919)</h1>
+    <nav class="navbar">
+        <ul>
+            <li><a href="javascript:void(0);" title="Home" onclick="animateAndRedirectHome()">Home</a></li>
+            <li><a href="quiz.html" title="Quiz">Quiz</a></li>
+            <li><a href="about.html" title="About">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <div class="timeline-svg">
+            <svg width="40" height="40" class="timeline-circle" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="url(#tricolor-gradient)" />
+                <defs>
+                    <linearGradient id="tricolor-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff6600;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#138808;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <br>
+        <ul class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1857</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1884</h3>
+                </div>
+            </li>
+            <li class="timeline-item s">
+                <div class="timeline-content ">
+                    <h5 >1885</h5>
+                </div>
+            </li>
+            <li class="timeline-item s">
+                <div class="timeline-content ">
+                    <h5>1905</h5>
+                </div>
+            </li>
+            <li class="timeline-item s">
+                <div class="timeline-content ">
+                    <h5>1906</h5>
+                </div>
+            </li>
+            <li class="timeline-item s">
+                <div class="timeline-content ">
+                    <h5>1917</h5>
+                </div>
+            </li>
+            <li class="timeline-item s">
+                <div class="timeline-content ">
+                    <h5>1919</h5>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1920</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1939</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1947</h3>
+                </div>
+            </li>
+        </ul>
+    </div>  
+    
+    <div id="content-box" class="content-box">
+        <p id="content-text">Hover over a year to see the content.</p>
+    </div>
+
+    <div id = "middle">
+        Hover over the years (1885, 1905, 1906, 1917, 1919) to see the content.  
+    </div>
+    <i class="fa-brands fa-github github-icon"  onclick="window.open('https://github.com', '_blank')"></i>
+</body>
+</html>

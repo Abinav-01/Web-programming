@@ -1,0 +1,238 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.github-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.slide-left {
+  animation: slideleft 2s forwards;
+}
+
+@keyframes slideleft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between; /* Ensure even spacing */
+  position: fixed; /* Fixed position to cover the entire screen */
+  bottom: -20px; /* Align to the bottom */
+  left: 0;
+  right: 0;
+  padding: 10px 0; /* Adjust padding */
+  list-style: none;
+  font-size: 1.4em;
+  width: 100%; /* Full width */
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px; /* Adjust line thickness */
+  background: transparent; /* No solid color */
+  border-top: 2px dotted white; /* Dotted line with white color */
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: column; /* Align items vertically */
+  margin-bottom: 20px; /* Adjust space from the bottom */
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35px; /* Increased size */
+  height: 35px; /* Increased size */
+  margin-left: -17.5px; /* Adjusted for new size */
+  margin-top: -10px; /* Adjusted for new size */
+  background: white; /* Fully white */
+  border-radius: 50%;
+  z-index: 2;
+  animation: pulseScale 1.5s infinite ease-in-out;
+}
+
+.timeline-content {
+  justify-content: space-evenly;
+  margin-top: 90px; /* Adjust as needed */
+  color: white;
+  text-align: center; /* Center the text */
+}
+
+.timeline-item:hover {
+  transform: scale(1.2); /* Slightly enlarges the whole item */
+}
+
+.timeline-svg {
+  position: absolute;
+  bottom: 87px; /* Adjust as needed */
+  left: 8.7%; /* Align to the center */
+  z-index: 3; /* Ensure it is above other elements */
+}
+
+h1 {
+  font-size: 2em;
+  color: white;
+  position: absolute; /* Position it absolutely */
+  top: 30px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  margin: 0; /* Remove default margin */
+}
+
+.transparent-box-container {
+  display: flex;
+  justify-content: space-between; /* Ensure even spacing */
+  align-items: center;
+  width: 100%; /* Adjust width to fit only the first three boxes */
+  transition: transform 0.5s ease-in-out;
+  border-radius: 5px;
+  margin-top: -80px;
+  overflow: hidden; /* Hide overflow */
+}
+
+.transparent-box {
+  flex: 1 1 30%; /* Ensure the first three boxes fill the space equally */
+  height: 450px;
+  position: relative;
+  margin: 0 10px;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.transparent-box:hover {
+  transform: scale(1.05);
+  border-radius: 15px; /* Slightly enlarge the box on hover */
+}
+
+.transparent-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(2.5px); /* Apply blur effect */
+  z-index: -1;
+}
+
+/* Set individual background images */
+.transparent-box:nth-child(1)::before {
+  background-image: url(mangal.jpg);
+}
+
+.transparent-box:nth-child(2)::before {
+  background-image: url(meerut1.jpg);
+}
+
+.transparent-box:nth-child(3)::before {
+  background-image: url(delhi.jpg);
+}
+
+.transparent-box:nth-child(4)::before {
+  background-image: url(kanpur.jpg);
+}
+
+.transparent-box:nth-child(5)::before {
+  background-image: url(lucknow.jpg);
+}
+.transparent-box:nth-child(6)::before {
+  background-image: url(jhansi.webp);
+}
+
+.transparent-box:nth-child(n + 4) {
+  display: none; /* Hide all boxes except the first three */
+}
+
+.transparent-box-container.show-next-three
+  .transparent-box:nth-child(n + 4):nth-child(-n + 6) {
+  display: block; /* Show the next three boxes */
+}
+
+.transparent-box-container.show-next-three .transparent-box:nth-child(-n + 3) {
+  display: none; /* Hide the first three boxes */
+}
+
+/* Ensure text remains clear */
+.transparent-box h2,
+.transparent-box p,
+.transparent-box ul {
+  position: relative;
+  z-index: 1;
+}
+
+.transparent-box h2 {
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  color: yellow;
+  text-align: justify;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: circle;
+  color: yellow;
+  text-align: justify;
+  padding: 0 25px;
+  font-weight: bold;
+}
+
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 3; /* Ensure arrows are above other elements */
+}
+.left-arrow {
+  left: 10px; /* Adjust position */
+}
+.left-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.right-arrow {
+  right: 10px; /* Adjust position */
+}
+.right-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}

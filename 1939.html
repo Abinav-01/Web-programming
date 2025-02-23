@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1939</title>
+    
+    <link rel="stylesheet" type="text/css" href="nav.css">
+    <link rel = "stylesheet" type = "text/css" href = "1939.css">
+    <link rel="stylesheet" type="text/css" href="content.css">
+
+    <script src="https://kit.fontawesome.com/cccfcee2f0.js" crossorigin="anonymous"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let timelineItems = document.querySelectorAll(".timeline-item");
+            let movingCircle = document.querySelector(".timeline-circle"); // The SVG element
+
+            timelineItems.forEach((item) => {
+                item.addEventListener("click", function () {
+                    let year = this.querySelector("h3").innerText; // Extract year from the clicked timeline item
+                    let targetPosition = this.getBoundingClientRect();
+                    let containerPosition = document.querySelector('.timeline-svg').getBoundingClientRect();
+
+                    movingCircle.style.transition = "transform 1.5s ease-in-out";
+                    movingCircle.style.transform = `translateX(${targetPosition.x - containerPosition.x + 148.8}px)`;
+                    
+                    setTimeout(() => {
+                        window.location.href = year + '.html'; // Redirect to the respective page
+                    }, 2000); // Slightly longer than animation time 
+                });
+            });
+        });
+
+        function animateAndRedirectHome() {
+            let content = document.querySelector('.content-container');
+            content.classList.remove('active');
+            void content.offsetWidth;
+            content.classList.add('slide-down');
+            setTimeout(() => {
+                location.href = 'start.html';
+            }, 1000);
+        }
+        
+    </script>
+</head>
+<body class="background-container">
+        <h1>Non-Cooperation & Civil Disobedience (1920-1935)</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="javascript:void(0);" title="Home" onclick="animateAndRedirectHome()">Home</a></li>
+                <li><a href="quiz.html" title="Quiz">Quiz</a></li>
+                <li><a href="about.html" title="About">About</a></li>
+            </ul>
+        </nav>
+    
+        <div class="content-container">
+            <div class="timeline-svg">
+                <svg width="40" height="40" class="timeline-circle" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="url(#tricolor-gradient)" />
+                    <defs>
+                        <linearGradient id="tricolor-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6600;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#138808;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <br>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1857</h3>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1884</h3>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-content ">
+                        <h3>1920</h3>
+                    </div>
+                </li>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1939</h3>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1947</h3>
+                    </div>
+                </li>
+            </ul>
+            <div class = "content-box box1">
+                <h3>The Outbreak of World War II and India's Involvement (1939)</h3>
+                <p>In September 1939, World War II broke out, and the British government unilaterally declared India's participation in the war without consulting Indian leaders. This angered the Indian National Congress (INC), which demanded a clear commitment from the British regarding India's independence in return for support in the war. When the British refused, the Congress ministries in provincial governments resigned in protest.</p>
+                <p>India’s forced participation in the war led to increased exploitation of resources, economic hardship, and food shortages, which later resulted in events like the Bengal Famine of 1943.</p>
+            </div>
+            <div class = "content-box box2">
+                <h3>Quit India Movement (1942)</h3>
+                <p>The Quit India Movement, launched by Mahatma Gandhi on August 8, 1942, was one of the most significant mass movements demanding an immediate end to British rule. The movement was launched at the Bombay Session of the Indian National Congress, where Gandhi gave the famous call: "Do or Die." The British responded with mass arrests, violent suppression, and media censorship. Gandhi, Nehru, Patel, and thousands of leaders were imprisoned, and protests across India were met with brutal police and military action. Despite heavy repression, the movement marked a turning point as it clearly signaled that the British could no longer rule India without massive resistance. The movement, though crushed within a year, left a deep impact on India's freedom struggle. It convinced the British that maintaining control over India was becoming impossible, paving the way for negotiations on independence.</p>
+            </div>
+            <div class = "content-box box3">
+                <h3>The Indian Naval Mutiny (1946)</h3>
+                <p>One of the most overlooked but crucial events was the Indian Naval Mutiny, which took place on February 18, 1946. Indian sailors, also known as ratings, of the Royal Indian Navy (RIN) in Bombay (now Mumbai) launched a strike against poor working conditions, racial discrimination, and continued British rule. The mutiny soon spread to Calcutta, Karachi, and Madras, with over 20,000 sailors participating, joined by thousands of civilians in solidarity. The mutiny was eventually called off after negotiations led by national leaders like Sardar Patel, but it sent a clear message that the British could no longer rely on the loyalty of Indian forces.</p>
+                <p>This event, along with growing unrest in the army and air force, was one of the final blows to British rule, as it made them realize that India’s armed forces were no longer willing to support colonial rule.</p>
+            </div>
+            <div class = "content-box box4">
+                <h3>Cabinet Mission Plan (1946)</h3>
+                <p>In March 1946, the British government sent a delegation known as the Cabinet Mission to India to discuss the transfer of power and prevent the country from descending into civil war. The mission proposed a federal structure where India would remain united but have autonomous provinces and separate groups for Hindus and Muslims.</p>
+                <p>The Indian National Congress and the Muslim League initially accepted the plan, but later, Muhammad Ali Jinnah demanded a separate Pakistan, leading to increased communal tensions. Eventually, the failure of the Cabinet Mission led to the Mountbatten Plan (1947), which resulted in the partition of India and the creation of Pakistan.</p>
+            </div>
+        </div>  
+        <i class="fa-brands fa-github github-icon"  onclick="window.open('https://github.com', '_blank')"></i>
+</body>
+</html>

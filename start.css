@@ -1,0 +1,83 @@
+h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 5em;
+  font-weight: bold;
+  margin: 0;
+  color: white; /* Plain white text */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adjust text shadow for better readability */
+}
+
+button {
+  position: relative;
+  z-index: 1;
+  padding: 15px 30px; /* Increase padding for a larger button */
+  font-size: 1.5em; /* Increase font size */
+  color: black; /* Black letters */
+  background-color: white; /* Background color */
+  border: none;
+  border-radius: 10px; /* Rounded edges */
+  cursor: pointer;
+  margin-top: 60px; /* Increase space between h1 and button */
+  transition: background-color 0.5s ease, transform 0.5s ease; /* Smooth color transition and add transform transition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add 3D effect */
+  font-weight: bold;
+}
+
+@keyframes tricolorGlow {
+  0% {
+    box-shadow: 0 0 35px rgba(255, 102, 0, 0.9);
+  } /* Saffron */
+  33% {
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
+  } /* White */
+  66% {
+    box-shadow: 0 0 35px rgba(19, 136, 8, 0.9);
+  } /* Green */
+  100% {
+    box-shadow: 0 0 35px rgba(255, 102, 0, 0.9);
+  } /* Back to Saffron */
+}
+
+button:hover {
+  background: linear-gradient(
+    to bottom,
+    #ff6600,
+    white,
+    #138808
+  ); /* Tri-color gradient */
+  transform: scale(1.1); /* Slightly enlarge the button */
+  animation: tricolorGlow 3s infinite alternate; /* Apply the glowing animation */
+  font-weight: bolder;
+  color: black;
+}
+
+.slide-up {
+  animation: slideUp 1.5s forwards; /* Adjusted duration */
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.slide-down {
+  animation: slideDown 1.5s forwards; /* Adjusted duration */
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(00);
+    opacity: 1;
+  }
+}

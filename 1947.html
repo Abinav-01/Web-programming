@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1947 - Independence</title>
+    <link rel="stylesheet" type="text/css" href="nav.css">
+    <link rel="stylesheet" type="text/css" href="1947.css">
+
+    <script src="https://kit.fontawesome.com/cccfcee2f0.js" crossorigin="anonymous"></script>
+    <script>
+
+        function animateAndRedirect(target) {
+            let contentWrapper = document.querySelector('.content-wrapper');
+            let timelineSvg = document.querySelector('.timeline-svg');
+            let timeline = document.querySelector('.timeline');
+            let quizButton = document.querySelector('.quiz-button');
+            let githubIcon = document.querySelector('.github-icon');
+            let navbar = document.querySelector('.navbar');
+            let heading = document.querySelector('h1');
+
+            // Add the slide-down class to trigger the animation
+            contentWrapper.classList.add('slide-down');
+            timelineSvg.classList.add('slide-down');
+            timeline.classList.add('slide-down');
+            quizButton.classList.add('slide-down');
+            githubIcon.classList.add('slide-down');
+            navbar.classList.add('slide-down');
+            heading.classList.add('slide-down');
+
+            // Redirect after the animation completes (adjust the timeout as needed)
+            setTimeout(() => {
+                window.location.href = target + '.html';
+            }, 1000); // Adjust the timeout to match the animation duration
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Timeline functionality (existing code)
+            let timelineItems = document.querySelectorAll(".timeline-item");
+            let movingCircle = document.querySelector(".timeline-circle");
+
+            timelineItems.forEach((item) => {
+                item.addEventListener("click", function () {
+                    let year = this.querySelector("h3").innerText;
+                    let targetPosition = this.getBoundingClientRect();
+                    let containerPosition = document.querySelector('.timeline-svg').getBoundingClientRect();
+
+                    movingCircle.style.transition = "transform 1.5s ease-in-out";
+                    movingCircle.style.transform = `translateX(${targetPosition.x - containerPosition.x + 148.8}px)`;
+
+                    setTimeout(() => {
+                        window.location.href = year + '.html';
+                    }, 2000);
+                });
+            });
+
+            // Slideshow functionality
+            let slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+
+            // Initially hide all slides except the first one (already handled in CSS)
+            for (let i = 1; i < slides.length; i++) {
+                slides[i].style.opacity = 0;
+            }
+
+            // Function to show the next slide
+            function showNextSlide() {
+                slides[currentSlide].style.opacity = 0; // Fade out current slide
+                currentSlide = (currentSlide + 1) % slides.length; // Move to the next slide
+                slides[currentSlide].style.opacity = 1; // Fade in next slide
+            }
+
+            // Set interval to change slides every 1.5 seconds (adjust as needed)
+            setInterval(showNextSlide, 3000);
+
+        });
+
+        function animateAndRedirectHome() {
+            let content = document.querySelector('.content-container');
+            content.classList.remove('active');
+            void content.offsetWidth;
+            content.classList.add('slide-down');
+            setTimeout(() => {
+                location.href = 'start.html';
+            }, 1500);
+        }
+        
+    </script>
+</head>
+<body class="background-container">
+    <h1>India's Independence Day</h1>
+    <nav class="navbar">
+        <ul>
+            <li><a href="javascript:void(0);" title="Home" onclick="animateAndRedirect('start')">Home</a></li>
+            <li><a href="javascript:void(0);" title="Quiz" onclick="animateAndRedirect('quiz')">Quiz</a></li>
+            <li><a href="javascript:void(0);" title="About" onclick="animateAndRedirect('about')">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="content-box">
+            <p>
+                On August 15, 1947, India achieved freedom from British rule after nearly 200 years of colonial oppression. The struggle for independence, led by great leaders like Mahatma Gandhi, Jawaharlal Nehru, Sardar Patel, and Subhas Chandra Bose, resulted in the birth of a free nation.
+            </p>
+            <br>
+            <p>
+                At midnight, Jawaharlal Nehru delivered his iconic "Tryst with Destiny" speech, marking the beginning of a new era. The Indian national flag was hoisted at the Red Fort, symbolizing independence. However, freedom came with the partition of India and Pakistan, leading to mass violence and displacement.
+            </p>
+            <br>
+            <p>
+                Since then, Independence Day is celebrated every year with great enthusiasm. The Prime Minister hoists the flag at the Red Fort, and people across the country participate in cultural events, patriotic songs, and flag-hoisting ceremonies. It is a day to honor our freedom fighters and renew our commitment to unity, democracy, and national progress.
+            </p>
+            <br>
+            <p>
+                Independence Day is not just a celebration but also a reminder of our responsibility to uphold the values of justice, equality, and freedom. As citizens, we must work together to build a stronger, more developed, and inclusive India. Let us remember the sacrifices of the past and strive towards a brighter future for our nation.
+            </p>
+            <br>
+            <p>
+                Jai Hind!
+            </p>
+        </div>
+        <div class="slideshow-container">
+            <div class="slide">
+                <img src="image1.jpg" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="image22.jpg" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="image33.avif" alt="Image 3">
+            </div>
+            <div class="slide">
+                <img src="image4.jpg" alt="Image 3">
+            </div>
+            <div class="slide">
+                <img src="image5.jpg" alt="Image 3">
+            </div>
+            <div class="slide">
+                <img src="image6.jpg" alt="Image 3">
+            </div>
+        </div>
+    </div>
+
+    <div class="timeline-svg">
+        <svg width="40" height="40" class="timeline-circle" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="url(#tricolor-gradient)" />
+            <defs>
+                <linearGradient id="tricolor-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff6600;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#138808;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+    <br>
+    <ul class="timeline">
+        <li class="timeline-item">
+            <div class="timeline-content">
+                <h3>1857</h3>
+            </div>
+        </li>
+        <li class="timeline-item">
+            <div class="timeline-content">
+                <h3>1884</h3>
+            </div>
+        </li>
+        <li class="timeline-item">
+            <div class="timeline-content ">
+                <h3>1920</h3>
+            </div>
+        </li>
+        <li class="timeline-item">
+            <div class="timeline-content">
+                <h3>1939</h3>
+            </div>
+        </li>
+        <li class="timeline-item">
+            <div class="timeline-content">
+                <h3>1947</h3>
+            </div>
+        </li>
+    </ul>
+
+    <i class="fa-brands fa-github github-icon" onclick="window.open('https://github.com', '_blank')"></i>
+    <a href="quiz.html"><button class="quiz-button">Take Quiz</button></a>
+</body>
+</html>

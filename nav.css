@@ -1,0 +1,101 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    font-family: 'Arial', sans-serif; /* Set a default font */
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%; /* Make the navbar full width */
+    height: 48px; /* Set a fixed height */
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    z-index: 2;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 30px; /* Add margin to the right */
+}
+
+.navbar ul li {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes tricolorGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 102, 0, 0.9); }  /* Saffron */
+    33% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.9); }  /* White */
+    66% { box-shadow: 0 0 10px rgba(19, 136, 8, 0.9); }  /* Green */
+    100% { box-shadow: 0 0 10px rgba(255, 102, 0, 0.9); }  /* Back to Saffron */
+}
+
+.navbar ul li a:hover {
+    color: white; /* Change text color for better visibility */
+}
+
+
+/* The underline should be invisible initially */
+.navbar ul li a {
+    font-weight: bold;  
+    font-family: 'Arial', sans-serif; /* Set a default font */
+    font-size: 1.2em; /* Set a default font size */
+    text-decoration: none;
+    color: white; /* Set the text color to white */
+    display: inline-block; /* Ensures proper block behavior */
+    position: relative; /* Required for ::after positioning */
+    padding: 10px 20px; /* Padding for better spacing */
+    transition: color 0.3s ease; /* Smooth text color transition */
+}
+
+/* Underline should be invisible initially */
+.navbar ul li a::before{
+    content: ''; 
+    position: absolute;
+    left: 0;
+    bottom: 3px; /* Adjust to place it right below the text */
+    width: 0; /* Initially hidden */
+    height: 2px; 
+    background-color: white; /* Underline color */
+    transition: width 0.3s ease-out; /* Smooth animation */
+}
+
+.navbar ul li a:hover::before {
+    width: 100%; /* Expands from left to right */
+
+}
+
+
+.background-container {
+    width: 100%;
+    height: 100%; /* Cover the entire screen */
+    background: url('output.jpg') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.github-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white; /* Set the icon color to white */
+    font-size: 2em; /* Adjust the size of the icon */
+    z-index: 3;
+}
+
+.github-icon:hover{
+    cursor: pointer; /* Change cursor to pointer on hover */
+}

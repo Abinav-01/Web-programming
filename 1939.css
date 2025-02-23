@@ -1,0 +1,169 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.github-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+.timeline {
+    display: flex;
+    justify-content: space-between; /* Ensure even spacing */
+    position: fixed; /* Fixed position to cover the entire screen */
+    bottom: -20px; /* Align to the bottom */
+    left: 0;
+    right: 0;
+    padding: 10px 0; /* Adjust padding */
+    list-style: none;
+    font-size: 1.4em;
+    width: 100%; /* Full width */
+}
+
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px; /* Adjust line thickness */
+    background: transparent; /* No solid color */
+    border-top: 2px dotted white; /* Dotted line with white color */
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: column; /* Align items vertically */
+    margin-bottom: 20px; /* Adjust space from the bottom */
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px; /* Increased size */
+    height: 35px; /* Increased size */
+    margin-left: -17.5px; /* Adjusted for new size */
+    margin-top: -10px; /* Adjusted for new size */
+    background: white; /* Fully white */
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-svg {
+    position: absolute;
+    bottom: 87.0px; /* Adjust as needed */
+    left: 68.7%; /* Align to the center */
+    z-index: 3; /* Ensure it is above other elements */
+}
+
+.timeline-content {
+    justify-content: space-evenly;
+    margin-top: 90px; /* Adjust as needed */
+    color: white;
+    text-align: center; /* Center the text */
+}
+
+h1 {
+    font-size: 2em;
+    color: white;
+    position: absolute; /* Position it absolutely */
+    top: 30px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+}
+.timeline-item:hover{
+    transform: scale(1.1); /* Slightly enlarges the whole item */
+}
+.content-container {
+    display: flex;
+    flex-direction: row; /* changed to row */
+    height: 50vh; /* Adjust as needed */
+    width: 100%;
+    justify-content: space-evenly; /* Distributes space evenly */
+    align-items: center; /* Centers items horizontally */
+}
+
+.content-box {
+    margin-top: -60px;
+    width: 22%; /* Adjust as needed */
+    height: 450px; /* Each box takes 1/4th of the container height */
+    background-color: transparent; /* Optional: for visibility */
+    border: 1px solid #ccc; /* Optional: for visibility */
+    border-radius: 15px;
+    text-align: center; /* Centers text inside the box */
+    /* line-height: 10vh; Vertically centers single-line text */
+    display: flex;
+    flex-direction: column; /* align items vertically */
+    align-items: center;
+    justify-content: flex-start; /* align content to the top */
+    padding: 10px; /* add some padding */
+    color: white; /* set text color to white */
+    position: relative; /* Required for pseudo-element positioning */
+    z-index: 1; /* Ensure content is above the blurred background */
+    background: none; /* Remove background from the box itself */
+    transition: transform 0.3s ease; /* Add a smooth transition */
+}
+
+.content-box:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.content-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place the pseudo-element behind the content */
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px); /* Apply blur effect to the background image */
+    border-radius: inherit; /* Inherit border-radius from the parent */
+}
+
+.content-box h3 {
+    margin-top: -8px;
+    padding: 5px;
+    text-align: left; /* align heading to the left */
+    color: black;
+    font-weight: bold;
+}
+
+.content-box p {    
+    text-align: justify; /* justify the text */
+    margin-top: 0px;
+    color: yellow;
+    font-weight: bold;
+}
+
+.box1::before {
+    background-image: url('i1.jpg'); /* Replace with your image path */
+
+}
+
+.box2::before {
+    background-image: url('i2.webp'); /* Replace with your image path */
+    color: black;
+}
+
+.box3::before {
+    background-image: url('I3.jpg'); /* Replace with your image path */
+}
+
+.box4::before {
+    background-image: url('i4.jpg'); /* Replace with your image path */
+}

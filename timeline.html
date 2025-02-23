@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline</title>
+    <link rel="stylesheet" type="text/css" href="nav.css">
+    <link rel = "stylesheet" type = "text/css" href = "timeline.css">
+    <script src="https://kit.fontawesome.com/cccfcee2f0.js" crossorigin="anonymous"></script>
+    <script>
+        function animateAndRedirectHome() {
+            let content = document.querySelector('.content-container');
+            content.classList.remove('slide-in');
+            void content.offsetWidth;
+            content.classList.add('slide-down');
+            setTimeout(() => {
+                location.href = 'start.html';
+            }, 1500);
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let timelineItems = document.querySelectorAll(".timeline-item");
+            let movingCircle = document.querySelector(".timeline-circle"); // The SVG element
+
+            timelineItems.forEach((item) => {
+                item.addEventListener("click", function () {
+                    let year = this.querySelector("h3").innerText; // Extract year from the clicked timeline item
+                    let targetPosition = this.getBoundingClientRect();
+
+                    movingCircle.style.transition = "transform 1.5s ease-in-out";
+                    movingCircle.style.transform = `translateX(${targetPosition.x+11.7}px)`;
+
+                    // Move content to the left and disappear
+                    let content = document.querySelector('.content-container');
+                    setTimeout(() => {
+                        content.classList.add('slide-left'); // Redirect to the respective page
+                    }, 2000);
+                    setTimeout(() => {
+                        window.location.href = year + '.html'; // Redirect to the respective page
+                    }, 3000); // Slightly longer than animation time
+                });
+            });
+        });
+
+        window.onload = function() {
+            let content = document.querySelector('.content-container');
+            let button = document.querySelector('.continue-button');
+            
+            // Add animation classes to both content and button
+            content.classList.add('slide-in');
+            button.classList.add('slide-in');  // Add the animation class for the button
+
+            // Apply animation only once, and prevent it from re-triggering
+            setTimeout(() => {
+                button.classList.remove('slide-in');
+            }, 2000); // Adjust this to match your animation duration
+        };
+    </script>
+    
+</head>
+<body class="background-container fade-in"> 
+    <nav class="navbar">
+        <ul>
+            <li><a href="javascript:void(0);" title="Home" onclick="animateAndRedirectHome()">Home</a></li>
+            <li><a href="quiz.html" title="Quiz">Quiz</a></li>
+            <li><a href="contact.html" title="Contact">Contact</a></li>
+            <li><a href="about.html" title="About">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- New Content -->
+    <div class="content-container">
+        <h2>Timeline of Indian Independence</h2><br>
+        <p>Explore key events from 1857 to 1947.</p>
+        <div class="timeline-svg">
+            <svg width="40" height="40" class="timeline-circle" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="url(#tricolor-gradient)" />
+                <defs>
+                    <linearGradient id="tricolor-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff6600;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#138808;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <br>
+        <ul class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1857</h3>
+                </div>
+                
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1884</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1920</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1939</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1947</h3>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <i class="fa-brands fa-github github-icon" title="github" onclick="window.open('https://github.com', '_blank')"></i>
+</body>
+</html>

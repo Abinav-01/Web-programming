@@ -1,0 +1,185 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.github-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+.timeline {
+    display: flex;
+    justify-content: space-between; /* Ensure even spacing */
+    position: fixed; /* Fixed position to cover the entire screen */
+    bottom: -20px; /* Align to the bottom */
+    left: 0;
+    right: 0;
+    padding: 10px 0; /* Adjust padding */
+    list-style: none;
+    font-size: 1.4em;
+    width: 100%; /* Full width */
+}
+
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px; /* Adjust line thickness */
+    background: transparent; /* No solid color */
+    border-top: 2px dotted white; /* Dotted line with white color */
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: column; /* Align items vertically */
+    margin-bottom: 20px; /* Adjust space from the bottom */
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px; /* Increased size */
+    height: 35px; /* Increased size */
+    margin-left: -17.5px; /* Adjusted for new size */
+    margin-top: -10px; /* Adjusted for new size */
+    background: white; /* Fully white */
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-svg {
+    position: absolute;
+    bottom: 87.0px; /* Adjust as needed */
+    left: 88.7%; /* Align to the center */
+    z-index: 3; /* Ensure it is above other elements */
+}
+
+.timeline-content {
+    justify-content: space-evenly;
+    margin-top: 90px; /* Adjust as needed */
+    color: white;
+    text-align: center; /* Center the text */
+}
+
+h1 {
+    font-size: 2em;
+    color: white;
+    position: absolute; /* Position it absolutely */
+    top: 30px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+}
+.timeline-item:hover{
+    transform: scale(1.1); /* Slightly enlarges the whole item */
+}
+
+.quiz-button {
+    position: fixed;
+    bottom: 180px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.quiz-button:hover {
+    background-color: #367c39;
+    transform: scale(1.1);
+}
+
+.content-wrapper {
+    display: flex;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    left:10%;
+    bottom: 50%;
+    top: 13%;
+    width: 80%;
+    height: 65%;
+    background: linear-gradient(to bottom, #FF9933, white, #138808);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease; /* Add this line */
+}
+.content-wrapper:hover{
+    transform: scale(1.05); /* Modify this line */
+}
+.content-box {
+    width: 50%;
+    padding: 10px;
+    color: black;
+    text-align: justify;
+    font-size: 1.05em;
+    position: relative;
+}
+
+.content-box p{
+    margin-top: -23px;
+    font-weight: bold;
+    position: relative; /* Bring text in front of the blur */
+    z-index: 1; /* Ensure text is above the blurred background */
+}
+
+
+.slideshow-container {
+    margin-left: 10px;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease-in-out; /* Ensure smooth transition */
+    opacity: 0; /* Initially hide all slides */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Basic slideshow animation (you'll likely need JavaScript for a proper slideshow) */
+.slide:first-child {
+    opacity: 1; /* Show the first slide */
+}
+
+.slide-down {
+    transition: all 1s ease-in-out;
+    transform: translateY(100vh); /* Slide down below the viewport */
+    opacity: 0; /* Fade out */
+}
+
+.slide-right {
+    transition: all 1s ease-in-out;
+    transform: translateX(100vw); /* Slide to the right */
+    opacity: 0; /* Fade out */
+}

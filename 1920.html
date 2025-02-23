@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1920</title>
+    
+    <link rel="stylesheet" type="text/css" href="nav.css">
+    <link rel = "stylesheet" type = "text/css" href = "1920.css">
+
+    <script src="https://kit.fontawesome.com/cccfcee2f0.js" crossorigin="anonymous"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let timelineItems = document.querySelectorAll(".timeline-item");
+            let movingCircle = document.querySelector(".timeline-circle"); // The SVG element
+
+            timelineItems.forEach((item) => {
+                item.addEventListener("click", function () {
+                    let year = this.querySelector("h3").innerText; // Extract year from the clicked timeline item
+                    let targetPosition = this.getBoundingClientRect();
+                    let containerPosition = document.querySelector('.timeline-svg').getBoundingClientRect();
+
+                    movingCircle.style.transition = "transform 1.5s ease-in-out";
+                    movingCircle.style.transform = `translateX(${targetPosition.x - containerPosition.x + 64.6}px)`;
+                    
+                    setTimeout(() => {
+                        window.location.href = year + '.html'; // Redirect to the respective page
+                    }, 2000); // Slightly longer than animation time 
+                });
+            });
+        });
+
+        function animateAndRedirectHome() {
+            let content = document.querySelector('.content-container');
+            content.classList.remove('active');
+            void content.offsetWidth;
+            content.classList.add('slide-down');
+            setTimeout(() => {
+                location.href = 'start.html';
+            }, 1000);
+        }
+        
+        // Add new hover functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const contentBox = document.getElementById('content-box');
+            const contentText = document.getElementById('content-text');
+            const timelineItems = document.querySelectorAll('.timeline-item.small-circle');
+
+            const content = {
+                '1921': {
+                    heading: 'Non-Cooperation Movement (1920-1922)',
+                    text: ' The Non-Cooperation Movement was launched by Mahatma Gandhi in 1920 as the first major mass movement against British rule in India. It was a response to growing Indian resentment towards British policies, especially after the Rowlatt Act (1919) and the Jallianwala Bagh Massacre (1919). Gandhi called for a nationwide boycott of British goods, institutions, and services, urging people to withdraw from government-run schools, courts, and offices. The movement promoted the use of Swadeshi (indigenous) goods, especially Khadi (handspun cloth), as a replacement for foreign-made products. Indian leaders and common citizens alike participated in strikes, demonstrations, and protests, making it one of the largest civil disobedience movements of its time. Despite its initial success, the movement took a violent turn in 1922, when a group of protestors set a police station on fire in Chauri Chaura (Uttar Pradesh), killing 22 policemen. Disturbed by this act of violence, Gandhi called off the movement, emphasizing his commitment to non-violence. While the movement failed to achieve immediate independence, it mobilized millions of Indians and laid the foundation for future resistance movements against British rule.',
+                    image: '1921.webp',
+                    boxId: 'content-box-1921'
+                },
+                '1922': {
+                    heading: 'Chauri Chaura Incident',
+                    text: "The Chauri Chaura incident took place on February 5, 1922, in the town of Chauri Chaura, Uttar Pradesh, and marked a turning point in the Indian independence movement. During a protest as part of the Non-Cooperation Movement, a group of Indian demonstrators clashed with police forces. When the police fired upon the protestors, the enraged crowd set fire to a police station, resulting in the death of 22 police officers. This violent turn of events went against Mahatma Gandhi’s principle of Ahimsa (non-violence), leading him to call off the Non-Cooperation Movement entirely. The incident had significant consequences for India’s freedom struggle. Many Indian nationalists were disappointed by Gandhi’s decision to suspend the movement, as they felt it was a major setback in the fight for independence. However, it reinforced Gandhi’s firm commitment to non-violence, which remained the guiding principle of future movements, including the Civil Disobedience Movement and Quit India Movement.",
+                    image: '1922.jpg',
+                    boxId: 'content-box-1922'
+                },
+                '1928': {
+                    heading: 'Simon Commission',
+                    text: "The Simon Commission was a group of seven British parliamentarians, led by Sir John Simon, set up in 1927 by the British government to assess the working of the Government of India Act 1919 and suggest constitutional reforms. However, it faced widespread opposition in India because it did not include a single Indian member. Indians saw this as a deliberate exclusion of their voices in deciding their own future. In 1928, when the Simon Commission arrived in India, it was met with massive protests and the slogan 'Simon Go Back'. Political leaders, including Lala Lajpat Rai, led large demonstrations against the commission. During one such protest in Lahore, Lala Lajpat Rai was brutally lathi-charged by the police under orders from British officer James A. Scott. He later succumbed to his injuries, leading to widespread outrage. The death of Lala Lajpat Rai further intensified nationalist sentiments, and in retaliation, Bhagat Singh and his associates assassinated James A. Scott (mistakenly killing J.P. Saunders instead). The protests against the Simon Commission eventually led to the Nehru Report (1928), which was India’s first attempt to draft a constitutional framework demanding Dominion Status. The failure of the British to acknowledge these demands eventually contributed to the launch of the Civil Disobedience Movement in 1930.",
+                    image: '1928.avif',
+                    boxId: 'content-box-1928'
+                },
+                '1930': {
+                    heading: 'Civil Disobedience Movement (1930-1934)',
+                    text: "The Civil Disobedience Movement was launched in 1930 by Mahatma Gandhi as the second major mass movement against British rule. Unlike the Non-Cooperation Movement, this campaign aimed at breaking specific British laws through non-violent resistance. The movement began with the famous Salt March (Dandi March) on March 12, 1930, in which Gandhi and his followers walked 240 miles (386 km) from Sabarmati Ashram to Dandi to protest against the British salt monopoly. By making salt from seawater, Gandhi symbolically defied British rule, inspiring millions to participate in acts of civil disobedience, such as refusing to pay taxes, boycotting foreign goods, and picketing liquor shops. Gandhi, along with thousands of leaders and activists, was imprisoned. However, the movement gained international attention, putting pressure on the British government. In 1931, Gandhi signed the Gandhi-Irwin Pact, agreeing to call off the movement in exchange for the release of political prisoners and participation in the Second Round Table Conference in London. It also strengthened the Indian National Congress's demand for Purna Swaraj (complete independence).",
+                    image: '1930.avif',
+                    boxId: 'content-box-1930'
+                },
+                '1935': {
+                    heading: 'Government of India Act',
+                    text: "The Government of India Act 1935 was the largest and most comprehensive constitutional reform introduced by the British in India. It was designed to grant limited self-governance to Indians while maintaining British control over key areas. The act introduced provincial autonomy, allowing Indian leaders to govern at the provincial level, and it proposed a federal structure that included Indian princely states. One of the key provisions of the act was the introduction of separate electorates based on religion, caste, and community, which deepened divisions within Indian society. Despite its flaws, the act led to the first provincial elections in 1937, where the Indian National Congress won a majority in several provinces. This was a significant political victory, as it allowed Indian leaders to administer key regions and prepare for full independence. However, the act was widely criticized by nationalist leaders, including Jawaharlal Nehru, who called it a 'charter of slavery'. The British still retained control over defense, finance, and foreign affairs, making the act far from a complete step toward self-rule. Despite this, the Government of India Act 1935 played an essential role in shaping India’s future governance, as many of its provisions were later adopted in India’s Constitution (1950) after independence.",
+                    image: '1935.jpg',
+                    boxId: 'content-box-1935'
+                }
+            };
+
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseover', () => {
+                    const year = item.querySelector('h5').innerText;
+                    if (content[year]) {
+                        const contentData = content[year];
+                        contentBox.innerHTML = `<h3>${contentData.heading}</h3><p id="content-text">${contentData.text.replace(/\n/g, '<br>').replace(/•/g, '→')}</p>`;
+                        contentBox.style.backgroundImage = `url('${contentData.image}')`;
+                        contentBox.id = contentData.boxId;
+                        contentBox.style.display = 'block';
+                    }
+                });
+
+                item.addEventListener('mouseout', () => {
+                    contentBox.style.display = 'none';
+                    contentBox.id = 'content-box'; // Reset the ID
+                });
+            });
+        });
+        
+    </script>
+    </head>
+<body class="background-container">
+    <h1>Non-Cooperation & Civil Disobedience (1920-1935)</h1>
+    <nav class="navbar">
+        <ul>
+            <li><a href="javascript:void(0);" title="Home" onclick="animateAndRedirectHome()">Home</a></li>
+            <li><a href="quiz.html" title="Quiz">Quiz</a></li>
+            <li><a href="about.html" title="About">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <div class="timeline-svg">
+            <svg width="40" height="40" class="timeline-circle" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="url(#tricolor-gradient)" />
+                <defs>
+                    <linearGradient id="tricolor-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff6600;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#138808;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <br>
+        <ul class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1857</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1884</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content ">
+                    <h3>1920</h3>
+                </div>
+            </li>
+            <li class="timeline-item small-circle">
+                <div class="timeline-content ">
+                    <h5>1921</h5>
+                </div>
+            </li>
+            <li class="timeline-item small-circle">
+                <div class="timeline-content ">
+                    <h5>1922</h5>
+                </div>
+            </li>
+            <li class="timeline-item small-circle">
+                <div class="timeline-content ">
+                    <h5>1928</h5>
+                </div>
+            </li>
+            <li class="timeline-item small-circle">
+                <div class="timeline-content ">
+                    <h5>1930</h5>
+                </div>
+            </li>
+            <li class="timeline-item small-circle">
+                <div class="timeline-content">
+                    <h5>1935</h5>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1939</h3>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1947</h3>
+                </div>
+            </li>
+        </ul>
+    </div>  
+    
+    <div id="content-box" class="content-box">
+        <p id="content-text">Hover over a year to see the content.</p>
+    </div>
+
+    <div id = "middle">
+        Hover over the years (1921, 1922, 1928, 1930, 1935) to see the content.  
+    </div>
+    <i class="fa-brands fa-github github-icon"  onclick="window.open('https://github.com', '_blank')"></i>
+</body>
+</html>

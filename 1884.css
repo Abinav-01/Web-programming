@@ -1,0 +1,180 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.github-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+.timeline {
+    display: flex;
+    justify-content: space-between; /* Ensure even spacing */
+    position: fixed; /* Fixed position to cover the entire screen */
+    bottom: -20px; /* Align to the bottom */
+    left: 0;
+    right: 0;
+    padding: 10px 0; /* Adjust padding */
+    list-style: none;
+    font-size: 1.4em;
+    width: 100%; /* Full width */
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px; /* Adjust line thickness */
+    background: transparent; /* No solid color */
+    border-top: 2px dotted white; /* Dotted line with white color */
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: column; /* Align items vertically */
+    margin-bottom: 20px; /* Adjust space from the bottom */
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px; /* Increased size */
+    height: 35px; /* Increased size */
+    margin-left: -17.5px; /* Adjusted for new size */
+    margin-top: -10px; /* Adjusted for new size */
+    background: white; /* Fully white */
+    border-radius: 50%;
+    z-index: 2;
+}
+
+
+.timeline-content {
+    justify-content: space-evenly;
+    margin-top: 90px; /* Adjust as needed */
+    color: white;
+    text-align: center; /* Center the text */
+}
+
+
+
+.timeline-svg {
+    position: absolute;
+    bottom: 87.9px; /* Adjust as needed */
+    left: 13.7%; /* Align to the center */
+    z-index: 3; /* Ensure it is above other elements */
+}
+
+h1 {
+    font-size: 2em;
+    color: white;
+    position: absolute; /* Position it absolutely */
+    top: 30px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+}
+
+.timeline-item:hover{
+    transform: scale(1.1); /* Slightly enlarges the whole item */
+}
+.content-box {
+    display: none;
+    position: fixed;
+    top: 100px; /* Position below h1 */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    z-index: 1001;
+    width: 50%;
+    height: 400px;
+    text-align: left;
+    line-height: 1.5;
+    margin-bottom: 100px; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: none; /* Remove default background image */
+    background-color: transparent; /* Remove default background color */
+}
+
+/* Specific background colors for each content box */
+#content-box-1885 p {
+    color: yellow;
+}
+#content-box-1885 h1 {
+    font-size: 1.1rem;
+    color: white;
+}
+
+#content-box-1905 p {
+    color: yellow;
+ }
+
+
+#content-box-1906 p {
+   color: yellow;
+}
+
+#content-box-1917 p {
+    color: yellow;
+ }
+
+ #content-box-1919 p {
+    color: yellow;
+ }
+
+.content-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: -1;
+    backdrop-filter: blur(2px); /* Apply blur to the background */
+}
+
+.content-box h3 {
+    font-size: 1.5em; /* Increased font size */
+    margin-bottom: 10px; /* Add some space below the heading */
+}
+
+#content-text {
+    font-size: 1em;
+    margin: 0;
+    font-weight: bold;
+    color: black;
+    white-space: pre-line;
+    max-height: 100%;
+}
+
+#middle{
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+.timeline-item.s::before {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+    margin-left: -12.5px; /* Adjust for new size */
+    margin-top: 10px; /* Adjusted for new size */
+    top: 42%;
+}

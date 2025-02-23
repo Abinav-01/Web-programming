@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link rel="stylesheet" type="text/css" href="start.css" />
+    <link rel="stylesheet" type="text/css" href="nav.css" />
+    
+    <script src="https://kit.fontawesome.com/cccfcee2f0.js" crossorigin="anonymous"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f4f4f4;
+        background-image: url(output.jpg);
+        overflow: hidden;
+        background-size: 100vw 100vh;
+        margin: 0; /* Add this line */
+        padding: 0; /* Add this line */
+      }
+      .quiz-container {
+        width: 50%;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .question {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: white;
+      }
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 10px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        align-items: center; /* Add this line */
+      }
+      .option {
+        background: #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        width: 80%; /* Increase width */
+        margin: 0; /* Add this line */
+      }
+      .option:hover {
+        background: linear-gradient(to bottom, #ff6600, white, #138808);
+      }
+      .correct {
+        background: #4caf50 !important;
+        color: white;
+      }
+      .wrong {
+        background: #f44336 !important;
+        color: white;
+      }
+      #next-btn {
+        display: none;
+        margin-top: 15px;
+        padding: 10px 15px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #result {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      .hide {
+        display: none;
+      }
+      h2 {
+        font-size:50px ;
+        color: white;
+      }
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const correctAnswers = {
+        q1: "1a",
+        q2: "2a",
+        q3: "3a",
+        q4: "4a",
+        q5: "5a",
+        q6: "6a",
+        q7: "7a",
+        q8: "8a",
+        q9: "9a",
+        q10: "10a",
+      };
+    
+      document.getElementById("submitQuiz").addEventListener("click", function () {
+        let score = 0;
+    
+        Object.keys(correctAnswers).forEach((question) => {
+          const selectedOption = document.querySelector(
+            `input[name="${question}"]:checked`
+          );
+          if (selectedOption && selectedOption.id === correctAnswers[question]) {
+            score++;
+          }
+        });
+    
+        alert(`Your Score: ${score} / 10`);
+      });
+    });
+    </script>
+    
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="start.html" title="Home">Home</a></li>
+        <li><a href="quiz.html" title="Quiz">Quiz</a></li>
+        <li><a href="about.html" title="About">About</a></li>
+      </ul>
+    </nav>
+    <div class="quiz-container">
+      <h2>The Road To Freedom - Quiz</h2>
+      <div id="quiz">
+        <p class="question" id="question"></p>
+        <div class="options" id="options"></div>
+        <button id="next-btn">Next</button>
+      </div>
+      <p id="result" class="hide" style="color: white"></p>
+    </div>
+
+    <script>
+      const questions = [
+        {
+          question: "The Sepoy Mutiny in India started from _______ ?",
+          options: ["Rajkot", "Meerut ", "Bareilly ", "Champaran"],
+          answer: "Meerut ",
+        },
+        {
+          question:
+            "The British Government , under ______ , announced the Partition of Bengal.",
+          options: [
+            "Lord Irwin",
+            "Lord Dalhousie",
+            "Lord Curzon",
+            "Lord Pannick",
+          ],
+          answer: "Lord Curzon",
+        },
+
+        {
+          question: "When did India gain independence from British rule?",
+          options: [
+            "August 15, 1945",
+            "August 15, 1947",
+            "January 26, 1950",
+            "October 2, 1947",
+          ],
+          answer: "August 15, 1947",
+        },
+        {
+          question: "Who was the key leader of the Non-Cooperation Movement?",
+          options: [
+            "Bhagat Singh",
+            "Subhas Chandra Bose",
+            "Mahatma Gandhi",
+            "Sardar Patel",
+          ],
+          answer: "Mahatma Gandhi",
+        },
+        {
+          question: "In which year was the Quit India Movement launched?",
+          options: ["1930", "1942", "1947", "1919"],
+          answer: "1942",
+        },
+      ];
+
+      let currentQuestionIndex = 0;
+      let score = 0;
+
+      const questionElement = document.getElementById("question");
+      const optionsElement = document.getElementById("options");
+      const nextButton = document.getElementById("next-btn");
+      const resultElement = document.getElementById("result");
+
+      function loadQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+        optionsElement.innerHTML = "";
+
+        currentQuestion.options.forEach((option) => {
+          const button = document.createElement("div");
+          button.classList.add("option");
+          button.textContent = option;
+          button.onclick = () => checkAnswer(button, option);
+          optionsElement.appendChild(button);
+        });
+
+        nextButton.style.display = "none";
+      }
+
+      function checkAnswer(button, selectedAnswer) {
+        const correctAnswer = questions[currentQuestionIndex].answer;
+
+        if (selectedAnswer === correctAnswer) {
+          button.classList.add("correct");
+          score++;
+        } else {
+          button.classList.add("wrong");
+        }
+
+        document.querySelectorAll(".option").forEach((opt) => {
+          opt.onclick = null; // Disable further clicks
+          if (opt.textContent === correctAnswer) {
+            opt.classList.add("correct");
+          }
+        });
+
+        nextButton.style.display = "block";
+      }
+
+      nextButton.addEventListener("click", () => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+          loadQuestion();
+        } else {
+          showResult();
+        }
+      });
+
+      function showResult() {
+        document.getElementById("quiz").classList.add("hide");
+        resultElement.classList.remove("hide");
+        resultElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      }
+
+      loadQuestion();
+    </script>
+  </body>
+  <i class="fa-brands fa-github github-icon" onclick="window.open('https://github.com', '_blank')"></i>
+</html>
