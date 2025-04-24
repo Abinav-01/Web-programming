@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="start.css">
-    <link rel="stylesheet" type="text/css" href="nav.css">
-    <script src="https://kit.fontawesome.com/cccfcee2f0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="start.css" />
+    <link rel="stylesheet" type="text/css" href="nav.css" />
+    <script
+      src="https://kit.fontawesome.com/cccfcee2f0.js"
+      crossorigin="anonymous"
+    ></script>
     <script>
-        window.onload = function() {
-            document.querySelector('.content-container').classList.add('slide-down');
-        };
+      window.onload = function () {
+        document
+          .querySelector(".content-container")
+          .classList.add("slide-down");
+      };
 
-        function animateAndLoadContent() {
-            let content = document.querySelector('.content-container');
-            content.classList.remove('slide-down');
-            void content.offsetWidth;
-            content.classList.add('slide-up');
-            setTimeout(() => {
-                location.href = 'timeline.html';
-            }, 1500);
-        }
+      function animateAndLoadContent() {
+        let content = document.querySelector(".content-container");
+        content.classList.remove("slide-down");
+        void content.offsetWidth;
+        content.classList.add("slide-up");
+        setTimeout(() => {
+          location.href = "timeline.html";
+        }, 1500);
+      }
     </script>
-
-</head>
-<body class="background-container fade-in">
+  </head>
+  <body class="background-container fade-in">
     <nav class="navbar">
-        <ul>
-            <li><a href="start.html" title="Home">Home</a></li>
-            <li><a href="quiz.html" title="Quiz">Quiz</a></li>
-            <li><a href="about.html" title="About">About</a></li>
-        </ul>
+      <ul>
+        <li><a href="start.html" title="Home">Home</a></li>
+        <li><a href="quiz.html" title="Quiz">Quiz</a></li>
+        <li><a href="about.html" title="About">About</a></li>
+        <li><a href="museums.html" title="Museums">Museums near you</a></li>
+        {% if username %}
+            <li><a href="/logout" title="Logout">Logout</a></li>
+        {% endif %}
+      </ul>
     </nav>
 
     <div class="content-container">
-        <h1>The Road to Freedom</h1>
-        <button onclick="animateAndLoadContent()">Get Started</button>
+      <h1>The Road to Freedom</h1>
+      <button onclick="animateAndLoadContent()">Get Started</button>
     </div>
 
-    <i class="fa-brands fa-github github-icon" title="github" onclick="window.open('https://github.com', '_blank')"></i>
-</body>
+    <i
+      class="fa-brands fa-github github-icon"
+      title="github"
+      onclick="window.open('https://github.com', '_blank')"
+    ></i>
+  </body>
 </html>
